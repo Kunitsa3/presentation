@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>reveal.js</title>
+
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/theme/black.css">
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section data-auto-animate>
+        <div class="r-hstack justify-center">
+          <div data-id="box1" data-auto-animate-delay="0"
+            style="background: cyan; width: 150px; height: 100px; margin: 10px;"></div>
+          <div data-id="box2" data-auto-animate-delay="0.1"
+            style="background: magenta; width: 150px; height: 100px; margin: 10px;"></div>
+          <div data-id="box3" data-auto-animate-delay="0.2"
+            style="background: yellow; width: 150px; height: 100px; margin: 10px;"></div>
+        </div>
+        <h2 style="margin-top: 20px;">React</h2>
+      </section>
+      <section data-auto-animate>
+        <div class="r-stack">
+          <div data-id="box1" style="background: cyan; width: 300px; height: 300px; border-radius: 200px;"></div>
+          <div data-id="box2" style="background: magenta; width: 200px; height: 200px; border-radius: 200px;"></div>
+          <div data-id="box3" style="background: yellow; width: 100px; height: 100px; border-radius: 200px;"></div>
+        </div>
+        <h2 style="margin-top: 20px;">React</h2>
+      </section>
+      <section>
+        <section data-markdown>
+          React is a front-end JavaScript library developed by **Facebook** in 2011.
+          It follows the component based approach which helps in building reusable UI components.
+          It is used for developing complex and interactive web and mobile UI.
+        </section>
+        <section>
+          Even though it was open-sourced only in 2015, it has one of the largest communities supporting it.
+        </section>
+      </section>
+      <section data-markdown>
+        ### React Advantages
+        * Uses virtual DOM which is a JavaScript object. This will improve apps performance, since JavaScript virtual
+        DOM is faster than the regular DOM.
+        * Can be used on client and server side as well as with other frameworks.
+        * Component and data patterns improve readability, which helps to maintain larger apps.
+      </section>
+      <section data-markdown>
+        ### Limitations of React
+        * React is not a full-blown framework as it is only a library.
+        * It might be difficult for beginner programmers to understand React.
+        * Coding might become complex as it will make use of inline templating and JSX.
+      </section>
+      <section>
+        <section data-markdown>
+          ### Virtual DOM
+          In React, for every DOM object, there is a corresponding “virtual DOM object.” A virtual DOM object is a
+          representation of a DOM object, like a lightweight copy.
+        </section>
+        <section data-markdown>
+          Manipulating the DOM is slow. Manipulating the virtual DOM is much faster, because nothing gets drawn
+          onscreen.
+        </section>
+        <section data-markdown>
+          In summary, here’s what happens when you try to update the DOM in React:
+          * The entire virtual DOM gets updated.
+          * The virtual DOM gets compared to what it looked like before you updated it. React figures out which objects
+          have changed.
+          * The changed objects get updated on the real DOM.
+          * Changes on the real DOM cause the screen to change.
+        </section>
+      </section>
+
+      <section>
+        <section data-markdown>
+          ### Rendering with JSX
+          JSX is an extension of the JavaScript language which provides a way to structure component rendering using
+          syntax similar to HTML. JSX gives us the ability to write HTML elements in Javascript and place them in the
+          DOM by converting the HTML tags into React elements without the need for other methods like createElement() or
+          appendChild().
+        </section>
+        <section>
+          <pre><code data-line-numbers>
+const element = (
+  <div>
+    <h1>Hello!</h1>
+    <h2>Good to see you here.</h2>
+  </div>
+);
+            </code></pre>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          ### Components
+          Components are the building blocks of any React app. They are like JavaScript functions that accept arbitrary
+          input (Props) and return React elements describing what should be displayed on the screen.
+        </section>
+        <section>
+          The most direct way to define a component is to write a JavaScript function.
+          <pre><code data-trim data-noescape>
+  function Badge(props) {
+    return <h1>Hello, my name is {props.name}</h1>;
+  }
+  </code></pre>
+        </section>
+        <section>
+          This function is a valid React component because it accepts a single prop (which stands for properties) object
+          argument with data and returns a React element. Such components are called "function components" because they
+          are literally JavaScript functions.
+        </section>
+        <section>
+          Aside from function components, another type of component are "class components." A class component is
+          different from a function component in that it is defined by an ES6 class, as shown below:
+          <pre><code data-trim data-noescape>
+            class Badge extends React.Component {
+              render() {
+                return <h1>Hello, my name is {this.props.name}</h1>;
+              }
+            }
+            </code></pre>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          ## Props
+          Props are a short form for properties, and they simply refer to the internal data of a component in React.
+          They are written inside component calls and are passed into components.
+        </section>
+        <section data-markdown>
+          Two things that are worth remembering about props:
+          * the value of a prop determined and used as part of the blueprint before the component is built.
+          * the value of a prop will never change, i.e. props are read-only once they are passed into components.
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          ## State
+          State is an object that holds some information that may change over the lifetime of the component.
+        </section>
+        <section data-markdown>
+          ### Components in React can be stateful or stateless.
+          * A stateful component declares and manages local state in it.
+          * A stateless component is a pure function that doesn't have a local state and side-effects to manage.
+        </section>
+      </section>
+     
+      <section data-markdown>
+        ## Keys
+        In React, Keys are useful when working with dynamically created components. Setting the key value will keep your component uniquely identified after the change.
+        They help React in identifying the items which have changed, are removed, or added.
+      </section>
+      <section data-markdown>
+        ## React component’s lifecycle
+        There are three different phases of React component’s lifecycle:
+        1. Initial Rendering Phase
+        2. Updating Phase
+        3. Unmounting Phase.
+      </section>
+      <section>
+        <section data-markdown>
+          ## Hooks
+          Before React version 16.8, developers could handle state and other React features only using class components. But with version 16.8, React introduced a new pattern called Hooks.
+        </section>
+        <section data-markdown>
+          ## Advantages of using React Hooks
+          1. Hooks in general enable the extraction and reuse of stateful logic that is common across multiple components. 
+          2. Hooks allow to easily manipulate the state of our functional component.
+          3. By using them, we can totally avoid using lifecycle methods.
+        </section>
+        <section data-markdown>
+          ## Five Important Rules for Hooks
+          1. Never call Hooks from inside a loop, condition or nested function
+          2. Hooks should sit at the top-level of your component
+          3. Only call Hooks from React functional components
+          4. Never call a Hook from a regular function
+          5. Hooks can call other Hooks
+        </section>
+      </section>
+       
+    </div>
+  </div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+  </script>
+</body>
+
+</html>
